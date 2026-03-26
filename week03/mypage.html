@@ -11,7 +11,9 @@
       <div class="mypage-box">
         <div class="header">
           <img src="./images/icon.svg" class="logo" />
-          <button class="back-btn">메인으로 돌아가기</button>
+          <button class="back-btn" onclick="moveToMain()">
+            메인으로 돌아가기
+          </button>
         </div>
 
         <div class="content-container">
@@ -56,5 +58,10 @@
         </div>
       </div>
     </main>
+    <script>
+      function moveToMain() {
+        location.href = "./main.html";
+      }
+    </script>
   </body>
 </html>
