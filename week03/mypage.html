@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./mypage.css" />
+    <title>🦁 내 프로필</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="mypage-box">
+        <div class="header">
+          <img src="./images/icon.svg" class="logo" />
+          <button class="back-btn" onclick="moveToMain()">
+            메인으로 돌아가기
+          </button>
+        </div>
+
+        <div class="content-container">
+          <section class="left-section">
+            <p class="sub-title">About me</p>
+            <h3 id="main-title">Jiyun Kang</h3>
+            <p class="sub-info">닉네임 : 지윤</p>
+            <p class="sub-info">멋사 14기 백엔드</p>
+            <div class="profile-image">
+              <div class="card">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <img src="./images/profile.jpg" />
+                  </div>
+                  <div class="card-back">
+                    <span class="lion">🦁</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="right-section">
+            <div class="info-box">
+              <h4>학력사항</h4>
+              <p>숙명여자대학교 컴퓨터과학전공 23학번</p>
+            </div>
+            <div class="info-box">
+              <h4>자기소개</h4>
+              <p>
+                안녕하세요 멋사 14기 백엔드 개발자 강지윤입니다. 잘부탁드려요!
+              </p>
+            </div>
+            <div class="info-box">
+              <h4>컨택</h4>
+              <p id="email">메일 주소 : kangji09879@sookmyung.ac.kr</p>
+              <p>
+                깃허브 아이디 : <a href="https://github.com/hasol11">hasol11</a>
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="./mypage.js"></script>
+  </body>
+</html>
