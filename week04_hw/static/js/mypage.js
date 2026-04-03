@@ -3,6 +3,7 @@ function moveToMain() {
 }
 
 document.getElementById("email").addEventListener("click", function () {
-  navigator.clipboard.writeText("kangji09879@sookmyung.ac.kr");
+  const email = this.dataset.email;
+  navigator.clipboard.writeText(email);
   alert("복사됐어요!");
 });

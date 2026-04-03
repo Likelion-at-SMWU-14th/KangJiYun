@@ -9,7 +9,6 @@ body {
   background-attachment: fixed;
 }
 
-/* 1. 로그인 박스 */
 div {
   position: absolute;
   top: 50%;
@@ -22,7 +21,6 @@ div {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* 2. 로고 */
 header {
   margin-top: 4.38rem;
   display: grid;
@@ -39,7 +37,6 @@ span {
   color: #ee7521;
 }
 
-/* 3. 로그인 폼 */
 form {
   margin-top: 3.13rem;
   display: grid;
@@ -60,7 +57,7 @@ input {
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 136%; /* 1.53rem */
+  line-height: 136%;
   letter-spacing: -0.0315rem;
 }
 
@@ -118,7 +115,7 @@ input:focus-visible {
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 136%; /* 1.36rem */
+  line-height: 136%;
   letter-spacing: -0.028rem;
 }
 
@@ -128,7 +125,7 @@ input:focus-visible {
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 136%; /* 1.36rem */
+  line-height: 136%;
   letter-spacing: -0.028rem;
   text-decoration-line: underline;
   text-decoration-style: solid;

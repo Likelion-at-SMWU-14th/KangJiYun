@@ -9,20 +9,19 @@ body {
   background-attachment: fixed;
 }
 
-/* 1. 회원가입 박스 */
 .signup-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 37.75rem;
-  height: 45.9375rem;
+  height: auto;
   border-radius: 1.125rem;
   background: rgba(60, 60, 60, 0.3);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  padding-bottom: 2.5rem;
 }
 
-/* 2. 로고 */
 header {
   margin-top: 2.19rem;
   display: flex;
@@ -52,7 +51,7 @@ h2 {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 136%; /* 2.04rem */
+  line-height: 136%;
   letter-spacing: -0.042rem;
 }
 
@@ -66,7 +65,6 @@ h2 {
   display: block;
 }
 
-/* 3. 회원가입 폼 */
 form {
   margin-top: 50px;
   display: grid;
@@ -84,12 +82,11 @@ input {
   padding-left: 1.56rem;
   box-sizing: border-box;
 
-  /* 폰트 */
   color: #fff;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 136%; /* 1.53rem */
+  line-height: 136%;
   letter-spacing: -0.0315rem;
 }
 
@@ -115,7 +112,7 @@ input:focus-visible {
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 136%; /* 1.7rem */
+  line-height: 136%;
   letter-spacing: -0.035rem;
 }
 
@@ -134,6 +131,6 @@ input:focus-visible {
   font-size: 1.375rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 136%; /* 1.87rem */
+  line-height: 136%;
   letter-spacing: -0.0385rem;
 }
