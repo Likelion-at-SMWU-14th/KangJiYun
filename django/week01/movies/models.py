@@ -5,7 +5,9 @@ from django.db import models
 
 class Movie(models.Model):
     title = models.CharField(verbose_name="제목", max_length=200)
-    post = models.ImageField(verbose_name="포스터", blank=True, null=True)
+    post = models.ImageField(
+        verbose_name="포스터", blank=True, null=True, upload_to="posters/"
+    )
     director = models.CharField(verbose_name="감독", max_length=100)
     genre = models.CharField(verbose_name="장르", max_length=100)
     content = models.TextField(verbose_name="내용", blank=True, null=True)
