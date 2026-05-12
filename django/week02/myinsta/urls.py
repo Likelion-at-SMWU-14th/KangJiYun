@@ -19,11 +19,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from posts.views import url_view, url_parameter_view, function_view
+from posts.views import (
+    url_view,
+    url_parameter_view,
+    function_view,
+    class_view,
+    class_view2,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("url/", url_view),
     path("url/<str:username>/", url_parameter_view),
     path("fbv/", function_view),
+    path("cbv/", class_view.as_view()),
+    path("cbv2/", class_view2.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
