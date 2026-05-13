@@ -25,6 +25,7 @@ from posts.views import (
     function_view,
     class_view,
     class_view2,
+    home_view,
 )
 
 urlpatterns = [
@@ -34,4 +35,5 @@ urlpatterns = [
     path("fbv/", function_view),
     path("cbv/", class_view.as_view()),
     path("cbv2/", class_view2.as_view()),
+    path("", home_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
