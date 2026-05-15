@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post List</title>
+  </head>
+  <body>
+    <h3>게시글 리스트</h3>
+    <p>이 페이지는 {{ view_type }}로 작성된 페이지입니다.</p>
+    {% if posts %}
+      <div>
+        <p>총 게시글 수 : {{posts|length}}</p>
+      </div>
+    {% else %}
+      <div>
+        <p> 게시글이 없습니다.
+      </div>
+    {% endif %}
+    {% for post in posts %}
+      <p>{{ post.title }} - {{ post.writer }}</p>
+    {% endfor %}
+  </div>
+  </body>
+</html>
