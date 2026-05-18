@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post List</title>
+  </head>
+  <body>
+    <h3>게시글 상세</h3>
+    <p>이 페이지는 Class Based View로 작성된 페이지입니다.</p>
+      <p>게시글 ID : {{ post.id }}</p>
+      <p>게시글 제목 : {{ post.title }}</p>
+      <p>게시글 작성자 : {{ post.writer }}</p>
+      <p>게시글 내용 : {{ post.content }}</p>
+      <p>게시글 생성 날짜 : {{ post.created_at }}</p>
+  </div>
+  </body>
+</html>
