@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     "posts",
     "movies",
     "django_cleanup",
+    'users',
 ]
+
+AUTH_USER_MODEL='users.User'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
