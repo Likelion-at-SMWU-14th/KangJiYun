@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "movies",
     "django_cleanup",
     'users',
+    'accounts',
 ]
 
 AUTH_USER_MODEL='users.User'
