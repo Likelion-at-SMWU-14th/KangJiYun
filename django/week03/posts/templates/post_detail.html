@@ -25,6 +25,7 @@
     <h2>댓글</h2>
     {% for comment in comments %}
         <p>{{ comment.writer }} - {{ comment.content }}</p>
+        <a href="{% url 'posts:comment-update' post.id comment.id %}">수정</a>
     {% empty %}
         <p>댓글이 없습니다.</p>
     {% endfor %}

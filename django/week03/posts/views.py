@@ -132,3 +132,18 @@ def comment_create_view(request, post_id):
             comment.writer = request.user     
             comment.save()                    
     return redirect('posts:post-detail', id=post_id)
+
+def comment_update_view(request, post_id, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == "GET":
+        form = CommentModelForm(instance=comment)
+        context = {'form': form, 'comment': comment}
+        return render(request, 'comment_update.html', context)
+    else:
+        form = CommentModelForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+        else:
+            print(form.errors)
+            return render(request, 'comment_update.html', {'form': form, 'comment': comment})
+        return redirect('posts:post-detail', id=post_id)
