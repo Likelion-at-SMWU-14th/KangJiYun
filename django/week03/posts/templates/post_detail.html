@@ -11,9 +11,22 @@
     <p>작성일 - {{ post.created_at }}</p>
 
     {% if post.image %}
-        <img src="{{ post.image.url }}" alt = "Post Image">
+        <img src="{{ post.image.url }}" alt="Post Image">
     {% else %}
         <p>이미지가 없습니다.</p>
     {% endif %}
+
+    <form action="{% url 'posts:comment-create' post.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="댓글 작성">
+    </form>
+
+    <h2>댓글</h2>
+    {% for comment in comments %}
+        <p>{{ comment.writer }} - {{ comment.content }}</p>
+    {% empty %}
+        <p>댓글이 없습니다.</p>
+    {% endfor %}
 </body>
 </html>

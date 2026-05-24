@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.views import View
 from django.views.generic import ListView
-from .models import Post
-from .forms import PostBasedForm, PostModelForm
+from .models import Post, Comment
+from .forms import PostBasedForm, PostModelForm, CommentModelForm
 
 
 def url_view(request):
@@ -92,10 +92,12 @@ def post_model_form_view(request):
             return render(request,'post_model_form.html',{'form':form})
         return redirect('posts:post-list')
     
-def post_detail_view(request,id):
+def post_detail_view(request, id):
     post = Post.objects.get(id=id)
-    context={'post':post}
-    return render(request,'post_detail.html',context)
+    form = CommentModelForm()
+    comments = post.comment_set.all()
+    context = {'post': post, 'form': form, 'comments': comments}
+    return render(request, 'post_detail.html', context)
 
 def post_update_view(request, id):
     post = Post.objects.get(id=id)    
@@ -119,3 +121,14 @@ def post_delete_view(request, id):
         return redirect('posts:post-list')
     context = {'post' : post}
     return render(request, 'post_delete_confirm.html', context)
+
+def comment_create_view(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == "POST":
+        form = CommentModelForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)  
+            comment.post = post             
+            comment.writer = request.user     
+            comment.save()                    
+    return redirect('posts:post-detail', id=post_id)
