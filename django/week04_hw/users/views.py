@@ -27,3 +27,6 @@ def user_detail(request, user_id):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
+    if request.method=='DELETE':
+        user.delete()
+        return Response(status=204)
