@@ -21,3 +21,9 @@ def user_detail(request, user_id):
     
     if request.method=='GET':
         return Response(UserSerializer(user).data)
+    if request.method=='PATCH':
+        serializer=UserSerializer(user,data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
