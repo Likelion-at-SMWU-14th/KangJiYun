@@ -35,4 +35,10 @@ public class PostController {
     public  PostDTO getPostByRequestParam(@RequestParam("id") int id){
         return postService.getPostById(id);
     }
+
+    //게시글 수정
+    @PutMapping("/{id}")
+    public void updatePost(@PathVariable int id, @RequestBody PostDTO postDTO){
+        postService.updatePost(id, postDTO);
+    }
 }
