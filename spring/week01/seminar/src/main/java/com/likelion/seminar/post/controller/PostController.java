@@ -41,4 +41,10 @@ public class PostController {
     public void updatePost(@PathVariable int id, @RequestBody PostDTO postDTO){
         postService.updatePost(id, postDTO);
     }
+
+    //게시글 삭제
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable int id){
+        postService.deletePost(id);
+    }
 }
