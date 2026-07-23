@@ -27,4 +27,9 @@ public class StudentController {
     public StudentDTO getStudent(@PathVariable String studentId){
         return studentService.getStudent(studentId);
     }
+
+    @PutMapping("/{studentId}")
+    public void updateStudent(@PathVariable String studentId, @RequestBody StudentDTO studentDTO){
+        studentService.updateStudent(studentId, studentDTO);
+    }
 }
