@@ -22,4 +22,9 @@ public class StudentController {
     public List<StudentDTO> getStudents(){
         return studentService.getStudents();
     }
+
+    @GetMapping("/{studentId}")
+    public StudentDTO getStudent(@PathVariable String studentId){
+        return studentService.getStudent(studentId);
+    }
 }

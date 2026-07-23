@@ -17,4 +17,8 @@ public class StudentService {
     public List<StudentDTO> getStudents(){
         return this.studentDTOList;
     }
+
+    public StudentDTO getStudent(String studentId) {
+        return this.studentDTOList.stream().filter(s-> s.getStudentId().equals(studentId)).findFirst().orElse(null);
+    }
 }
