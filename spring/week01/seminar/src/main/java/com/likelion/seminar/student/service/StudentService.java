@@ -11,7 +11,10 @@ import java.util.List;
 public class StudentService {
     private final List<StudentDTO> studentDTOList;
 
-    public  void createStudent(StudentDTO studentDTO){
+    public void createStudent(StudentDTO studentDTO){
         this.studentDTOList.add(studentDTO);
+    }
+    public List<StudentDTO> getStudents(){
+        return this.studentDTOList;
     }
 }
