@@ -35,4 +35,10 @@ public class StudentService {
             }
         }
     }
+
+    public void deleteStudent(String studentId) {
+        if(!this.studentDTOList.removeIf(s -> s.getStudentId().equals(studentId))){
+            throw new IllegalArgumentException("해당 학번 학생이 존재하지 않습니다.");
+        }
+    }
 }
