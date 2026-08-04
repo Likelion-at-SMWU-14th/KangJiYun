@@ -1,4 +1,4 @@
-package com.example.seminar.model;
+package com.example.seminar.dto;
 
 
 import lombok.AllArgsConstructor;
