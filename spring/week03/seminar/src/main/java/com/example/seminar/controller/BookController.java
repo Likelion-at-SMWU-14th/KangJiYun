@@ -2,30 +2,25 @@ package com.example.seminar.controller;
 
 import com.example.seminar.dto.Book;
 import com.example.seminar.service.BookService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/books")
+@RequiredArgsConstructor
 public class BookController {
     private final BookService bookService;
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+
+
+    @GetMapping
+    public List<Book> books(){
+        return bookService.findAll();
     }
 
-    @GetMapping("/books")
-    public String books(Model page){
-        var books = bookService.findAll();
-        page.addAttribute("books",books);
-        return "books";
-    }
-
-    @PostMapping("/books")
-    public String addBook(Book book, Model page){
-        bookService.addBook(book);
-        var books = bookService.findAll();
-        page.addAttribute("books",books);
-        return "books";
+    @PostMapping
+    public Book addBook(@RequestBody Book book){
+        return bookService.addBook(book);
     }
 }
