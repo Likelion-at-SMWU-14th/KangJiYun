@@ -21,7 +21,8 @@ public class Board {
     private String name;
     @OneToMany(
             fetch = FetchType.LAZY,
-            mappedBy = "board"
+            mappedBy = "board",
+            cascade = CascadeType.ALL
     )
     private List<Post> posts = new ArrayList<>();
 
