@@ -29,12 +29,17 @@ class ProductRepositoryTest {
         queryFactory = new JPAQueryFactory(em);
 
         productRepository.saveAll(List.of(
+                Product.create("사인펜", 1000, 100),
                 Product.create("볼펜", 1200, 500),
-                Product.create("형광펜", 1800, 320),
                 Product.create("네임펜", 1300, 380),
-                Product.create("마카펜 세트", 8500, 60),
-                Product.create("화이트보드펜", 2500, 140),
+                Product.create("형광펜", 1800, 320),
                 Product.create("샤프펜슬", 1900, 180),
+                Product.create("화이트보드펜", 2500, 140),
+                Product.create("붓펜", 3000, 50),
+                Product.create("트윈펜", 4000, 70),
+                Product.create("컬러펜", 5000, 80),
+                Product.create("젤펜", 6000, 90),
+                Product.create("마카펜 세트", 8500, 60),
                 Product.create("만년필 고급형", 89000, 6),
                 Product.create("지우개", 800, 640),
                 Product.create("무선 마우스", 39000, 55),
@@ -51,12 +56,36 @@ class ProductRepositoryTest {
                 .limit(10)
                 .fetch();
 
+        assertThat(result).hasSize(10);
+
         assertThat(result)
                 .extracting(Product::getName)
-                .containsExactly("볼펜", "네임펜", "형광펜", "샤프펜슬", "화이트보드펜", "마카펜 세트");
+                .containsExactly(
+                        "사인펜",
+                        "볼펜",
+                        "네임펜",
+                        "형광펜",
+                        "샤프펜슬",
+                        "화이트보드펜",
+                        "붓펜",
+                        "트윈펜",
+                        "컬러펜",
+                        "젤펜"
+                );
 
         assertThat(result)
                 .extracting(Product::getPrice)
-                .containsExactly(1200, 1300, 1800, 1900, 2500, 8500);
+                .containsExactly(
+                        1000,
+                        1200,
+                        1300,
+                        1800,
+                        1900,
+                        2500,
+                        3000,
+                        4000,
+                        5000,
+                        6000
+                );
     }
 }
