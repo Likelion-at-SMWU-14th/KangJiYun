@@ -27,4 +27,12 @@ public class Product extends BaseEntity {
     @OneToOne(mappedBy = "product")
     @ToString.Exclude
     private ProductDetail productDetail;
+
+    @ManyToOne
+    @JoinColumn(name="provide_id")
+    private Provider provider;
+
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
 }
