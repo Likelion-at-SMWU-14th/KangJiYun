@@ -2,6 +2,7 @@ package com.example.seminar.service;
 
 import com.example.seminar.dto.UserSaveRequest;
 import com.example.seminar.entity.User;
+import com.example.seminar.global.exception.DuplicateEmailException;
 import com.example.seminar.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class UserService {
 
     @Transactional
     public void saveUser(UserSaveRequest request) {
+        if(userRepository.existsByEmail(request.getEmail())) {
+            throw new DuplicateEmailException();
+        }
         userRepository.save(
                 User.builder()
                         .name(request.getName())
