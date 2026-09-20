@@ -36,5 +36,10 @@ public class User {
         this.password = password;
         this.age = age;
     }
-
+    public void update(String name, String email, String password, Integer age) {
+        if (name != null) this.name = name;
+        if (email != null) this.email = email;
+        if (password != null) this.password = password;
+        if (age != null) this.age = age;
+    }
 }
