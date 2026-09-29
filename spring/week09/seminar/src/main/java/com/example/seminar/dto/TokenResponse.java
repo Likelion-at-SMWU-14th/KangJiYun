@@ -1,5 +1,6 @@
 package com.example.seminar.dto;
 
-public class TokenResponse {
-    String accessToken;
+public record TokenResponse(
+        String accessToken
+) {
 }
