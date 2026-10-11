@@ -52,7 +52,7 @@ def test_version():
 
     assert response.status_code == 200
     assert response.json() == {
-        "version": "v1",
+        "version": "v2",
         "author": "강지윤"
     }
 
