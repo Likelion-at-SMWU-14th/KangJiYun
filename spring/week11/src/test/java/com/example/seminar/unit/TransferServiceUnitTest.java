@@ -263,11 +263,19 @@ class TransferServiceUnitTest {
 
         // When & Then
         // TODO 5-1: -100원 이체를 시도하고 InvalidTransferException 발생 여부를 검증하세요.
+        var exceptionAssertion = assertThatThrownBy(() ->
+                transferService.transferMoney(
+                        1L, 2L, new BigDecimal("-100")
+                )
+        );
+        exceptionAssertion.isInstanceOf(InvalidTransferException.class);
 
         // TODO 5-2: 예외 메시지에 "positive"가 포함되어 있는지 확인하세요.
+        exceptionAssertion.hasMessageContaining("positive");
 
         // TODO 5-3: verifyNoInteractions()를 사용하여
         //  AccountRepository의 메서드가 호출되지 않았는지 검증하세요.
+        verifyNoInteractions(accountRepository);
 
         //fail("TODO: 음수 금액 테스트를 완성하세요.");
     }
